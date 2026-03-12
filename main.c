@@ -9,14 +9,14 @@
  * hem en eski kayıttan en yeniye, hem de en yeni hatadan geriye doğru 
  * hızlıca gezinebiliriz (O(1) zaman karmaşıklığı ile son düğüme erişim).
  */
-
+// Düğüm yapısı: Her bir log kaydını temsil eder
 typedef struct LogNode {
-    int logID;
-    char timestamp[32];
-    char level[12];     // INFO, ERROR, WARN
-    char message[256];
-    struct LogNode* next;
-    struct LogNode* prev;
+    int logID; // Kayıt numarası
+    char timestamp[32]; // Zaman bilgisi
+    char level[12];     // INFO, ERROR, WARN , hata seviyesi
+    char message[256]; // Mesaj içeriği
+    struct LogNode* next; // Sonraki düğümün adresi
+    struct LogNode* prev; // Önceki düğümün adresi
 } LogNode;
 
 // Yeni bir log düğümü oluşturma fonksiyonu
@@ -59,4 +59,5 @@ int main() {
     displayLogs(head);
 
     return 0;
+
 }
